@@ -94,6 +94,7 @@ const gameOver = () => {
   errorCount = 0;
   userText = "";
   display.classList.add("inactive");
+  
 };
 
 const closeModal = () => {
@@ -119,7 +120,8 @@ const start = () => {
       // countdownOverlay.removeChild('h1')
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.display = "flex";
+      // countdownOverlay.style.display = "flex";
+      display.innerHTML=`<input type="text" class="input">`
       display.classList.remove("inactive");
 
       clearInterval(startCountdown);
