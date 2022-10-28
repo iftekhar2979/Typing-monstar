@@ -69,7 +69,7 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
+  const timeTaken = ((finishTime - startTime) / 1000).toFixed(0);
 
   // show result modal
   resultModal.innerHTML = "";
@@ -94,12 +94,13 @@ const gameOver = () => {
   errorCount = 0;
   userText = "";
   display.classList.add("inactive");
-  
+
 };
 
 const closeModal = () => {
   modalBackground.classList.toggle("hidden");
   resultModal.classList.toggle("hidden");
+  window.location.reload()
 };
 
 const start = () => {
@@ -116,14 +117,14 @@ const start = () => {
     if (count == 0) {
       countdownOverlay.style.display = "none";
       countdownOverlay.remove('h1')
+      
       // console.log(countdownOverlay.children);
       // countdownOverlay.removeChild('h1')
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      // countdownOverlay.style.display = "flex";
-      display.innerHTML=`<input type="text" class="input">`
+      // display.innerHTML = `<input type="text" class="input">`
       display.classList.remove("inactive");
-
+      
       clearInterval(startCountdown);
       startTime = new Date().getTime();
     }
@@ -140,8 +141,17 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = ((currentTime - startTime) / 1000).toFixed(0);
+  // console.log(timeSpent);
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
+
+
+
+window.addEventListener('keydown', function(e) {
+  if(e.keyCode == 32 && e.target == document.body) {
+    e.preventDefault();
+  }
+});

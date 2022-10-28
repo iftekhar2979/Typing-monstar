@@ -39,13 +39,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding-left: 5rem;
+  padding-left: 1rem;
   color: white;
-  font-size: 32px;
+  font-size: 22px;
   background-color: #171717;
   border: 2px solid #9dffad;
   border-radius: 15px;
 }
+*
 
 #countdown {
   position: fixed;
@@ -63,8 +64,8 @@ body {
 }
 #result {
   position: fixed;
-  top: 10%; 
-  left: 10%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   height: 250px;
   width: 400px;
@@ -86,10 +87,11 @@ input.input:focus{
   margin: 10px 0;
 }
 .input {
-  height: 97px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  /* height: 97px; */
+  display: block;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
   padding-left: 0rem;
   color: white;
   font-size: 20px;
