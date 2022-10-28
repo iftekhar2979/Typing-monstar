@@ -170,7 +170,7 @@ button {
 
 
   .card {
-    width: 33%;
+    width: 32%;
     display: flex;
     padding: 50px;
     display: flex;
@@ -178,9 +178,9 @@ button {
     align-items: center;
     padding: 20px 30px;
     padding-top: 20px;
-    padding-right: 30px;
+    padding-right: 15px;
     padding-bottom: 20px;
-    padding-left: 30px;
+    padding-left: 15px;
     color: white;
     border-radius: 15px;
     background: rgb(255, 255, 255);
@@ -214,11 +214,21 @@ button {
   }
 }
 /* only screen and (min-width:769px) */
-@media only screen and (max-width:1000){
+@media only screen and (max-width:793px){
   .card {
-    width: 33%;
+    width: 48%;
     height: auto;
     display: flex;
     flex-direction: column;
+    margin: 1%;
+}
+}
+@media only screen and (max-width:530px){
+  .card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
 }
 }
