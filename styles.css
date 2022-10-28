@@ -168,24 +168,26 @@ button {
   justify-content: space-around;
 }
 
-.card {
-  width: 100%;
-  height: 100%;
-  padding: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-  color: white;
-  border-radius: 15px;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    92.49deg,
-    rgba(255, 255, 255, 0.1) 0.18%,
-    rgba(255, 255, 255, 0.05) 99.85%
-  );
-  backdrop-filter: blur(5px);
-  margin-bottom: 30px;
+
+  .card {
+    width: 33%;
+    display: flex;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    padding-top: 20px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    color: white;
+    border-radius: 15px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient( 92.49deg, rgba(255, 255, 255, 0.1) 0.18%, rgba(255, 255, 255, 0.05) 99.85% );
+    backdrop-filter: blur(5px);
+    margin-bottom: 30px;
+    flex-direction: column;
 }
 
 #modal-background {
@@ -210,4 +212,13 @@ button {
   .card {
     flex-direction: column;
   }
+}
+/* only screen and (min-width:769px) */
+@media only screen and (max-width:1000){
+  .card {
+    width: 33%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
 }
