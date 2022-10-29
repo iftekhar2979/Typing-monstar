@@ -155,6 +155,37 @@
                       </div>
                 </div>
               </div>
+            <div tabindex="0" class="collapse collapse-plus my-3 border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl text-gray-900 bg-gray-100 font-serif">
+                    Discussion about event loop?
+                </div>
+                <div class="collapse-content"> 
+                  <p>JS executes all operations on a single thread, but using a few smart data structures, it gives us the illusion of multi-threading. Event loop is the secret between the asynchronus Javascript.</p>
+                  <p>Javascript has a run time model based on event loop. Which is responsible for executing the code , collecting proccessing event and executing queue sub tasks .</p>
+                  <p>The Event Loop has one simple job — to monitor the Call Stack and the
+                    Callback Queue or Message Queue.</p>
+                <p>If the Call Stack is empty, it will take the first event from the
+                 Callback queue and will push it to the Call Stack, which effectively runs it</p>
+                </div>
+            </div>
+            <div tabindex="0" class="collapse collapse-plus my-3 border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl text-gray-900 bg-gray-100 font-serif">
+                    How many ways we can get undefined in javascript?
+                </div>
+                <div class="collapse-content"> 
+                  <p class="text-2xl">8 ways to get udefined:</p>
+                  <ul class="m-4 ">
+                    <li class="list-decimal">A declared variable without assigning any value to it</li>
+                    <li class="list-decimal">Implicit returns of functions due to missing return statements.</li>
+                    <li class="list-decimal">return statements that do not explicitly return anything.</li>
+                    <li class="list-decimal">Lookups of non-existent properties in an object.</li>
+                    <li class="list-decimal">Function parameters that have not passed.</li>
+                    <li class="list-decimal">Anything that has been set to the value of undefined.</li>
+                    <li class="list-decimal">Any expression in the form of void(expression).</li>
+                    <li class="list-decimal">The value of the global variable undefined.</li>
+                  </ul>
+                </div>
+              </div>
         </section>
     </main>
 </body>
