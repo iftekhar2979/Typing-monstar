@@ -38,7 +38,7 @@ function displayHistory() {
   <p>You took: <span class="bold">${test.timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${test.errorCount}</span> mistakes</p>
     <p>You typing speed is <span class="bold red">${test.wpm}</span> WPM</p>
-    <p>You typing typing accuracy is <span class="bold red">${test.accurancy}</span> WPM</p>
+    <p>You typing accuracy is <span class="bold red">${test.accurancy}</span> WPM</p>
   `;
 
     histories.appendChild(newRow);

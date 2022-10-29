@@ -115,7 +115,7 @@ const gameOver = () => {
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <p>You Typing Speed is <span class="bold ">${wpm}</span> WPM</p>
-    <p>You Typing Accuracy is<span class="bold ">${accurancy}</span> %</p>
+    <p>You Typing Accuracy is <span class="bold ">${accurancy}</span> %</p>
     <button onclick="closeModal()">Close</button>
   `;
 
