@@ -41,6 +41,7 @@ const typeController = (e) => {
   }
 
   userText += newLetter;
+  // console.log(userText);
 
   const newLetterCorrect = validate(newLetter);
 
@@ -50,10 +51,22 @@ const typeController = (e) => {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
   }
 
-  // check if given question text is equal to user typed text
-  if (questionText === userText) {
+
+
+let errorcounter=()=>{
+  if(!newLetterCorrect){
+    // console.log(errorCount++);
+    return errorCount++
+  }
+}
+errorcounter() 
+
+// check if given question text is equal to user typed text
+if (questionText === userText) {
+  console.log(errorcounter());
     gameOver();
   }
+  // return errorcounter
 };
 
 const validate = (key) => {
@@ -66,10 +79,12 @@ const validate = (key) => {
 // FINISHED TYPING
 const gameOver = () => {
   document.removeEventListener("keydown", typeController);
+  // console.log(errors);
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = ((finishTime - startTime) / 1000).toFixed(0);
+  // console.log(newletters);
 
   // show result modal
   resultModal.innerHTML = "";
