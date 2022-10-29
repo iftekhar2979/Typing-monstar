@@ -15,9 +15,7 @@ let questionText = "";
 fetch("./texts.json")
   .then((res) => res.json())
   .then((data) => {
-    // console.log(data);
     questionText = data[Math.floor(Math.random() * data.length)];
-    // console.log(questionText);
     question.innerHTML = questionText;
   });
 
@@ -41,7 +39,6 @@ const typeController = (e) => {
   }
 
   userText += newLetter;
-  // console.log(userText);
 
   const newLetterCorrect = validate(newLetter);
 
@@ -53,9 +50,9 @@ const typeController = (e) => {
 
 
 
+
 let errorcounter=()=>{
   if(!newLetterCorrect){
-    // console.log(errorCount++);
     return errorCount++
   }
 }
@@ -63,7 +60,6 @@ errorcounter()
 
 // check if given question text is equal to user typed text
 if (questionText === userText) {
-  console.log(errorcounter());
     gameOver();
   }
   // return errorcounter
@@ -79,13 +75,19 @@ const validate = (key) => {
 // FINISHED TYPING
 const gameOver = () => {
   document.removeEventListener("keydown", typeController);
-  // console.log(errors);
+
+  let typingLength=userText.length
+  // console.log(typingLength);
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = ((finishTime - startTime) / 1000).toFixed(0);
-  // console.log(newletters);
-
+  
+  const wordPerMinute=()=>{
+    
+    return Math.round(((typingLength/5)/(timeTaken/60)))
+  }
+  
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
@@ -99,10 +101,11 @@ const gameOver = () => {
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>You Typing Speed is <span class="bold ">${wordPerMinute()}</span> WPM</p>
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, timeTaken, errorCount);
+  addHistory(questionText, timeTaken, errorCount,wordPerMinute());
 
   // restart everything
   startTime = null;
@@ -132,12 +135,9 @@ const start = () => {
     if (count == 0) {
       countdownOverlay.style.display = "none";
       countdownOverlay.remove('h1')
-      
-      // console.log(countdownOverlay.children);
-      // countdownOverlay.removeChild('h1')
+    
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      // display.innerHTML = `<input type="text" class="input">`
       display.classList.remove("inactive");
       
       clearInterval(startCountdown);
@@ -157,14 +157,13 @@ displayHistory();
 setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = ((currentTime - startTime) / 1000).toFixed(0);
-  // console.log(timeSpent);
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
 
 
-
+//space button scrolling down problem
 window.addEventListener('keydown', function(e) {
   if(e.keyCode == 32 && e.target == document.body) {
     e.preventDefault();
