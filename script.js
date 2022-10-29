@@ -6,6 +6,7 @@ const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
 
 // variables
+let correctKeyword=0;
 let userText = "";
 let errorCount = 0;
 let startTime;
@@ -49,6 +50,12 @@ const typeController = (e) => {
   }
 
 
+let correctKey=()=>{
+  if(newLetterCorrect){
+    return correctKeyword++
+  }
+}
+correctKey()
 
 
 let errorcounter=()=>{
@@ -60,6 +67,7 @@ errorcounter()
 
 // check if given question text is equal to user typed text
 if (questionText === userText) {
+  correctKey()
     gameOver();
   }
   // return errorcounter
@@ -76,18 +84,23 @@ const validate = (key) => {
 const gameOver = () => {
   document.removeEventListener("keydown", typeController);
 
-  let typingLength=userText.length
-  // console.log(typingLength);
+  let typingLength=userText.length;
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
   const timeTaken = ((finishTime - startTime) / 1000).toFixed(0);
   
-  const wordPerMinute=()=>{
-    
+  console.log(correctKeyword);
+  console.log(typingLength);
+  const wordAcurancy=()=>{
+    return ((typingLength/correctKeyword)*100).toFixed(2)
+  }
+  const accurancy=wordAcurancy()
+
+  const wordPerMinute=()=>{   
     return Math.round(((typingLength/5)/(timeTaken/60)))
   }
-  
+  const wpm=wordPerMinute()
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
@@ -101,15 +114,17 @@ const gameOver = () => {
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
-    <p>You Typing Speed is <span class="bold ">${wordPerMinute()}</span> WPM</p>
+    <p>You Typing Speed is <span class="bold ">${wpm}</span> WPM</p>
+    <p>You Typing Accuracy is<span class="bold ">${accurancy}</span> %</p>
     <button onclick="closeModal()">Close</button>
   `;
 
-  addHistory(questionText, timeTaken, errorCount,wordPerMinute());
+  addHistory(questionText, timeTaken, errorCount,wpm,accurancy);
 
   // restart everything
   startTime = null;
   errorCount = 0;
+  correctKey=0;
   userText = "";
   display.classList.add("inactive");
 

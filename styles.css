@@ -231,4 +231,20 @@ button {
     flex-direction: column;
     margin: 1%;
 }
+
+#result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 250px;
+    width: 400px;
+    background-color: #171717;
+    outline: none;
+    border-radius: 15px;
+    border: 2px solid #9dffad;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
 }
