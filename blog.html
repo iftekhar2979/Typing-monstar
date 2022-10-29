@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.34.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <navbar class="navbar bg-base-100">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl">Pro-Js</a>
+        </div>
+        <div class="flex-none gap-2">
+            <div class="form-control">
+                <input type="text" placeholder="Search" class="input input-bordered" />
+            </div>
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img src="https://placeimg.com/80/80/people" />
+                    </div>
+                </label>
+                <ul tabindex="0"
+                    class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                    <li>
+                        <a class="justify-between">
+                            blogs
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a>Questions</a></li>
+                    <li><a>Tips</a></li>
+                </ul>
+            </div>
+        </div>
+    </navbar>
+    <main>
+        <section class="container mx-auto px-4">
+            <div tabindex="0" class="collapse collapse-plus my-3 border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl text-gray-900 bg-gray-100 font-serif">
+                    Difference between Local storage and session Storage?
+                </div>
+                <div class="collapse-content">
+                    <p class="my-2 text-lg "> localStorage and sessionStorageare almost identical and have the same API.
+                    </p>
+                    <p class="my-2 text-4xl text-black-900 capitalize"> local storage :</p>
+                    <ul class="mx-5">
+                        <li class="list-disc">
+                            local storage object persisted until the clearing browser data or clearing local storage
+                            object . It means if you clear the browser data or clear the local storage data then it will
+                            clear otherwise it will persisted
+                        </li>
+                        <li class="list-disc">
+                            You can create local storage by : there key will be the
+                            name of local storage object . and value can be ( object,string,number,array,array of
+                            object). The passed value must be a string if value is object then we have to create it like
+                            string and pass that on localstorage value.
+                            <div class="mockup-code text-center w-96">
+                                <pre><code><span class="text-green-500">localStorage</span>.<span class="text-purple-500">setItem</span>(”<span class="text-yellow-200">key</span>” ,"<span class="text-yellow-200">value</span>")</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-disc">
+                            use the getItem()method. The getItem()
+                             method takes one argument which must be the key. This function will return the
+                            corresponding value as a string .
+                            <div class="mockup-code text-center w-96">
+                                <pre><code><span class="text-green-500">localStorage</span>.<span class="text-purple-500">getItem</span>(”<span class="text-yellow-200">key</span>” )</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-disc ">
+                            - You can delete an entry with the `removeItem()` method. The `removeItem()`
+                             method takes one argument which will be a key of the `localStorage`
+                             object:
+                            <div class="mockup-code w-80 text-center">
+                                <pre><code><span class="text-green-500">localStorage</span>.<span class="text-purple-500">removeItem</span>(”<span class="text-yellow-200">key</span>”)</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="my-2 text-4xl text-black-900 capitalize"> Session Storage :</p>
+                    <ul class="mx-5">
+                        <li class="list-disc">
+                            Session storage object persisted until the tab of browser closed. If you close browser tab
+                            session storage data will clear
+                        </li>
+                        <li class="list-disc">
+                            You can create session storage by : sessionStorage.setItem(”key”,”value”) there key will be
+                            the name of session storage object . and value can be ( object, string, number, array, array
+                            of object). The passed value must be a string if value is object then we have to create it
+                            like string and pass that on localstorage value.
+                            <div class="mockup-code text-center w-96">
+                                <pre><code><span class="text-green-500">sessionStorage</span>.<span class="text-purple-500">setItem</span>(”<span class="text-yellow-200">key</span>” ,"<span class="text-yellow-200">value</span>")</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-disc">
+                            use the getItem()method. The getItem()
+                             method takes one argument which must be the key. This function will return the corresponding value as a string.
+                            <div class="mockup-code text-center w-96">
+                                <pre><code><span class="text-green-500">sessionStorage</span>.<span class="text-purple-500">getItem</span>(”<span class="text-yellow-200">key</span>” )</code></pre>
+                            </div>
+                        </li>
+                        <li class="list-disc ">
+                            - You can delete an entry with the removeItem() method. The removeItem()
+                             method takes one argument which will be a key of the sessionStorage
+                             object.
+                            <div class="mockup-code w-80 text-center">
+                                <pre><code><span class="text-green-500">sessionStorage</span>.<span class="text-purple-500">removeItem</span>(”<span class="text-yellow-200">key</span>”)</code></pre>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div tabindex="0" class="collapse collapse-plus my-3 border border-base-300 bg-base-100 rounded-box">
+                <div class="collapse-title text-xl text-gray-900 bg-gray-100 font-serif">
+                    Difference between global scope and block scope?
+                </div>
+                <div class="collapse-content"> 
+                    <div class="overflow-x-auto">
+                        <table class="table w-full my-3">
+                          <!-- head -->
+                          <thead>
+                            <tr>
+                              
+                              <th>Global Scope</th>
+                              <th>Block Scope</th>
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- row 1 -->
+                            <tr>
+                              
+                              <td>The whole document to Javascript it global scope.</td>
+                              <td>Function and variables are block scope</td>
+                              
+                            </tr>
+                            <!-- row 2 -->
+                            <tr>
+                              
+                              <td>Global scope means that the variables can <br>be accessed from any part of that program,<br> any function or conditional state <br>can access that variable.</td>
+                              <td>A variable when declared inside block<br>the if or switch conditions or inside for or while loops,<br> are accessible within that particular condition or loop. <br>To be consise the variables declared inside <br>the curly braces are called as within block scope.</td>
+                             
+                            </tr>
+                            <!-- row 3 -->
+                            <tr>
+                              <td>The var statement declares a function-scoped <br>or globally-scoped variable</td>
+                              <td>Block scope can not acces the variable which is<br> declared in other block scope like one function to another function.<br> let & const state declares only in block scope</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                </div>
+              </div>
+        </section>
+    </main>
+</body>
+
+</html>
